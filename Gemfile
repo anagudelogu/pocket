@@ -63,6 +63,12 @@ group :development, :test do
 
   # Fixtures replacement [https://github.com/thoughtbot/factory_bot/]
   gem 'factory_bot_rails'
+
+  # Integration specs [https://github.com/teamcapybara/capybara]
+  gem 'capybara'
+
+  # Selenium tests drivers [https://github.com/titusfortner/webdrivers]
+  gem 'webdrivers'
 end
 
 group :development do
