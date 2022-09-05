@@ -14,6 +14,7 @@ RSpec.describe 'Sessions', type: :system do
 
       click_on 'Log in'
     end
+    expect(page).to have_current_path(categories_path)
     expect(page).to have_content(/signed in successfully/i)
   end
 
