@@ -33,6 +33,9 @@ gem 'jbuilder'
 # Rubocop linters [https://github.com/rubocop/rubocop]
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+# Devise authentication [https://github.com/heartcombo/devise#getting-started]
+gem 'devise'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

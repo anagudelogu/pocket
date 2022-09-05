@@ -72,4 +72,7 @@ RSpec.configure do |config|
       Bullet.end_request
     end
   end
+
+  config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
