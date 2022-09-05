@@ -69,6 +69,9 @@ group :development, :test do
 
   # Selenium tests drivers [https://github.com/titusfortner/webdrivers]
   gem 'webdrivers'
+
+  # Kill n+1 queries [https://github.com/flyerhzm/bullet]
+  gem 'bullet'
 end
 
 group :development do
