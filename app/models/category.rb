@@ -4,4 +4,8 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
   validates :icon, presence: true
+
+  def total_amount
+    expenses.map(&:amount).reduce(:+) || 0
+  end
 end
