@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :expense do
-    user
+    author
     name { 'Expense' }
     amount { 1.5 }
   end
