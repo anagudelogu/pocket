@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+# rubocop:disable Metrics/BlockLength
 RSpec.describe 'Visiting the categories page', type: :system do
   context "when I'm not logged in" do
     scenario 'should redirect me to the login form' do
@@ -38,6 +38,24 @@ RSpec.describe 'Visiting the categories page', type: :system do
       end
     end
 
+    scenario 'should show me the total amount of all transactions for that category' do
+      e1 = create(:expense, author: user, amount: 20)
+      e2 = create(:expense, author: user, amount: 15)
+      e3 = create(:expense, author: user, amount: 20)
+
+      @c1.expenses << [e1, e2]
+      @c2.expenses << e3
+
+      visit categories_path
+
+      within('#categories-list') do
+        total_elements = all('p', count: 2, text: /total/i)
+        totals = total_elements.map(&:text)
+
+        expect(totals).to contain_exactly(/total \$ #{@c1.total_amount}/i, /total \$ #{@c2.total_amount}/i)
+      end
+    end
+
     scenario 'Clicking on new category takes me to a form to create a category' do
       click_on text: /new category/i
 
@@ -45,8 +63,11 @@ RSpec.describe 'Visiting the categories page', type: :system do
       expect(page).to have_selector('form', id: 'new-category')
     end
 
-    # PENDING: clicking on a category should lead lo Transactions#index
-    # PENDING: Should show the total amount of all transactions for that
-    #          category
+    scenario 'Clicking on a Category should lead to its expenses page' do
+      click_on text: @c1.name
+
+      expect(page).to have_current_path(category_expenses_path(@c1))
+    end
   end
 end
+# rubocop:enable Metrics/BlockLength
