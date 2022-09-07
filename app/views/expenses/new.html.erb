@@ -1,0 +1,29 @@
+<%= link_to category_expenses_path(params[:category_id]), id: "back-btn" do %>
+  <i>back</i>
+<% end %>
+<%= form_with model: @expense, url: category_expenses_path, id: 'new-expense', data: { turbo: false } do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div>
+    <%= f.label :amount %>
+    <%= f.number_field :amount, step: 0.01 %>
+  </div>
+
+  <div>
+  <%= fields_for :categories do |category_fields| %>
+    <%= category_fields.collection_check_boxes(:category_ids, Category.where(user: current_user), :id, :name, include_hidden: false) do |b| %>
+      <% unless b.value == params[:category_id].to_i %>
+        <%= b.check_box %>
+        <%= b.label %>
+      <% end %>
+    <% end %>
+  <% end %>
+  </div>
+
+  <div>
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>
