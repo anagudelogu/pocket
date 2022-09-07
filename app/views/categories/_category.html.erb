@@ -1,4 +1,7 @@
 <li>
-  <h3><%= category.name %></h3>
-  <img src="<%= category.icon %>" alt="<%= category.name %>'s icon">
+  <%= link_to category_expenses_path(category) do %>
+    <h3><%= category.name %></h3>
+    <img src="<%= category.icon %>" alt="<%= category.name %>'s icon">
+    <p>total $ <%= category.total_amount %></p>
+  <% end %>
 </li>

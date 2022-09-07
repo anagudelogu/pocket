@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @categories = Category.where(user: current_user)
+    @categories = Category.where(user: current_user).includes(%i[categories_expenses expenses])
   end
 
   def new
