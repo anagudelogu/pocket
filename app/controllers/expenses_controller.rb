@@ -1,3 +1,10 @@
 class ExpensesController < ApplicationController
-  def index; end
+  before_action :authenticate_user!
+
+  def index
+    @category = Category.find(params[:category_id])
+    @expenses = @category.expenses.order(id: :desc)
+  end
+
+  def new; end
 end

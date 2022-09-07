@@ -1,4 +1,21 @@
 <div>
-  <h1 class="font-bold text-4xl">Expenses#index</h1>
-  <p>Find me in app/views/expenses/index.html.erb</p>
+  <%= link_to categories_path, id: "back-btn" do %>
+    <i>back</i>
+  <% end %>
+
+  <h2 class="font-bold text-4xl"><%= @category.name %></h2>
+  <p>Total amount: $ <%= @category.total_amount %></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Expense</th>
+        <th>Amount</th>  
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @expenses %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Add Expense', new_category_expense_path(@category) %>
 </div>
