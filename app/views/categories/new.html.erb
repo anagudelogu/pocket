@@ -1,3 +1,6 @@
+<%= link_to categories_path, id: "back-btn" do %>
+  <i>back</i>
+<% end %>
 <%= form_with model: @category, url: categories_path, id: 'new-category', data: { turbo: false } do |f| %>
 
   <div>

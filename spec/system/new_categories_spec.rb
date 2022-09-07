@@ -59,6 +59,12 @@ RSpec.describe 'Visiting the new category page', type: :system do
         end
       end
     end
+
+    scenario 'Clicking on the back button gets me to the categories page' do
+      click_on 'a', id: 'back-btn'
+
+      expect(page).to have_current_path(categories_path)
+    end
   end
 end
 # rubocop:enable Metrics/BlockLength
