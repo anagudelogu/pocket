@@ -1,20 +1,18 @@
-<%= link_to categories_path, id: "back-btn" do %>
-  <i>back</i>
-<% end %>
-<%= form_with model: @category, url: categories_path, id: 'new-category', data: { turbo: false } do |f| %>
+<%= render partial: 'shared/header', locals: { path: categories_path, title: 'CATEGORY' } %>
+<section class="min-h-screen max-h-screen flex flex-col justify-start items-center bg-zinc-100 py-5">
+  <%= form_with model: @category, url: categories_path, id: 'new-category', data: { turbo: false }, html: { class: 'w-full'} do |f| %>
 
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+    <div>
+      <%= f.text_field :name, placeholder: 'Name', class: 'input-field' %>
+    </div>
 
-  <div>
-    <%= f.label :icon %>
-    <%= f.text_field :icon %>
-  </div>
+    <div>
+      <%= f.text_field :icon, placeholder: 'Icon', class: 'input-field' %>
+    </div>
 
-  <div>
-    <%= f.submit %>
-  </div>
+    <div>
+      <%= f.submit 'Create', class: 'header-btn' %>
+    </div>
 
-<% end %>
+  <% end %>
+</section>
