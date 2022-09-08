@@ -44,7 +44,7 @@ RSpec.describe 'Visiting new expenses page', type: :system do
           fill_in 'Name', with: 'Test name'
           fill_in 'Amount', with: 12.40
 
-          click_on 'Save'
+          click_on 'Create'
         end
         expect(page).to have_current_path(category_expenses_path(category))
         expect(page).to have_content(/Test name/i)
@@ -53,7 +53,7 @@ RSpec.describe 'Visiting new expenses page', type: :system do
       scenario 'with name field blank, display errors' do
         within(form) do
           fill_in 'Amount', with: 12.40
-          click_on 'Save'
+          click_on 'Create'
         end
         expect(page).to have_content(/name can't be blank/i)
       end
@@ -61,7 +61,7 @@ RSpec.describe 'Visiting new expenses page', type: :system do
       scenario 'with amount field blank, display errors' do
         within(form) do
           fill_in 'Name', with: 'Test name'
-          click_on 'Save'
+          click_on 'Create'
         end
         expect(page).to have_content(/amount can't be blank/i)
       end

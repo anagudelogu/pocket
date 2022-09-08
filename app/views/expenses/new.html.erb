@@ -1,29 +1,30 @@
-<%= link_to category_expenses_path(params[:category_id]), id: "back-btn" do %>
-  <i>back</i>
-<% end %>
-<%= form_with model: @expense, url: category_expenses_path, id: 'new-expense', data: { turbo: false } do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  
-  <div>
-    <%= f.label :amount %>
-    <%= f.number_field :amount, step: 0.01 %>
-  </div>
+<%= render partial: 'shared/header', locals: { path: category_expenses_path(params[:category_id]), title: 'EXPENSE' } %>
+<section class="min-h-screen max-h-screen flex flex-col justify-start items-center bg-zinc-100 py-5">
+  <%= form_with model: @expense, url: category_expenses_path, id: 'new-expense', data: { turbo: false }, html: { class: 'w-full' } do |f| %>
+    <div>
+      <%= f.text_field :name, placeholder: 'Name', class: 'input-field' %>
+    </div>
+    
+    <div>
+      <%= f.number_field :amount, step: 0.01, placeholder: 'Amount', class: 'input-field' %>
+    </div>
 
-  <div>
-  <%= fields_for :categories do |category_fields| %>
-    <%= category_fields.collection_check_boxes(:category_ids, Category.where(user: current_user), :id, :name, include_hidden: false) do |b| %>
-      <% unless b.value == params[:category_id].to_i %>
-        <%= b.check_box %>
-        <%= b.label %>
+    <h4 class="my-4">Extra categories (Optional)</h4>
+    <div class= "grid grid-cols-2 p-3 gap-y-4 border border-neutral-200 bg-white">
+    <%= fields_for :categories do |category_fields| %>
+      <%= category_fields.collection_check_boxes(:category_ids, Category.where(user: current_user), :id, :name, include_hidden: false) do |b| %>
+        <% unless b.value == params[:category_id].to_i %>
+          <div class="flex flex-nowrap items-center gap-2 text-sm">
+            <%= b.check_box %>
+            <%= b.label %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-  </div>
+    </div>
 
-  <div>
-    <%= f.submit 'Save' %>
-  </div>
-<% end %>
+    <div>
+      <%= f.submit 'Create', class: 'header-btn' %>
+    </div>
+  <% end %>
+</section>
