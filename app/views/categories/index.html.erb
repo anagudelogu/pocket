@@ -1,7 +1,10 @@
-<div>
-  <h2 class="font-bold text-4xl">Categories</h2>
-  <ul id="categories-list">
+<%= render partial: 'shared/header', locals: { title: 'CATEGORIES' } %>
+<section class="min-h-screen flex flex-col justify-start items-center bg-zinc-100 py-5">
+  <ul id="categories-list" class="w-full px-4 mb-12">
     <%= render @categories %>
   </ul>
-  <%= link_to 'New category', new_category_path %>
-</div>
+
+  <div class="fixed bottom-0 bg-green w-full text-center py-5">
+    <%= link_to 'NEW CATEGORY', new_category_path, class: 'border border-white py-2 px-4 text-white' %>
+  </div>
+</section>
