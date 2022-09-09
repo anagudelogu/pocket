@@ -4,6 +4,10 @@
 
 Planning your expenses is a must when you want to improve your financial life. Pocket lets you manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what. Having your finance under the control you want.
 
+## Live Demo
+
+[Pocket app](https://pocket-budget-app.herokuapp.com/categories)
+
 ## Built With
 
 - Ruby
