@@ -1,5 +1,5 @@
 <%= render partial: 'shared/header', locals: { path: root_path, title: 'REGISTER' } %>
-<section class="min-h-screen max-h-screen flex flex-col justify-start items-center bg-zinc-100 py-5">
+<section class="flex flex-col justify-start items-center bg-zinc-100 py-5 min-h-[80%] max-h-[80%] mt-12">
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}, html: { class: 'w-full' }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>

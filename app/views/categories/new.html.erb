@@ -1,5 +1,5 @@
 <%= render partial: 'shared/header', locals: { path: categories_path, title: 'CATEGORY' } %>
-<section class="min-h-screen max-h-screen flex flex-col justify-start items-center bg-zinc-100 py-5">
+<section class="flex flex-col justify-start items-center bg-zinc-100 py-5 min-h-[80%] max-h-[80%] mt-12">
   <%= form_with model: @category, url: categories_path, id: 'new-category', data: { turbo: false }, html: { class: 'w-full'} do |f| %>
 
     <div>

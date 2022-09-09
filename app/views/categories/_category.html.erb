@@ -7,6 +7,6 @@
       <h3><%= category.name %></h3>
       <p class="text-xs"><%= category.created_at.strftime('%b %d, %Y') %></p>
     </div>
-    <p class=" font-proxima_bold">$<%= category.total_amount %></p>
+    <p class=" font-proxima_bold">$<%= category.total_amount.round(2) %></p>
   <% end %>
 </li>

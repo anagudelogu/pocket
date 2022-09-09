@@ -1,10 +1,24 @@
-<header class=" grid grid-cols-3 bg-blue text-white py-3 px-2">
+<header data-controller="menu" class=" grid grid-cols-3 bg-blue text-white py-3 px-2 fixed top-0 w-full">
   <% if defined? path %>
     <%= link_to path, id: "back-btn" do %>
       <i class="material-icons">arrow_back</i>
     <% end %>
   <% else %>
-    <i class="material-icons">menu</i>
+    <button class="material-icons" type="button" data-action="click->menu#toggle">menu</button>
   <% end %>
-  <h2 class="text-center min-h-[32px]"><%= title %></h2>
+  <h2 class="text-center min-h-[32px] whitespace-nowrap"><%= title %></h2>
+
+  <% if user_signed_in? %>
+    <nav data-menu-target="menu" class="fixed left-0 top-14 bg-blue w-1/2 h-full transition-all -translate-x-full">
+      <ul class="w-full text-center flex flex-col justify-center h-2/3 gap-3 font-proxima_bold">
+        <li>
+          <%= link_to "Home", categories_path %>
+        </li>
+        <li>
+          <%= button_to "Logout", destroy_user_session_path, { data: { turbo: false }, class: '', method: :delete } %>
+        </li>
+      </ul>
+    </nav>
+  <% end %>
+
 </header>
