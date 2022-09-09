@@ -40,4 +40,10 @@ RSpec.describe 'Sessions', type: :system do
 
     expect(page).to have_content(/confirm your email/i)
   end
+
+  scenario 'Clicking the back btn gets me to the splash page' do
+    click_on 'a', id: 'back-btn'
+
+    expect(page).to have_current_path(root_path)
+  end
 end

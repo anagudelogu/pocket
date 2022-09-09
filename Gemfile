@@ -75,6 +75,9 @@ group :development, :test do
 
   # Kill n+1 queries [https://github.com/flyerhzm/bullet]
   gem 'bullet'
+
+  # Google icons [https://github.com/Angelmmiguel/material_icons]
+  gem 'material_icons'
 end
 
 group :development do

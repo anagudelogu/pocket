@@ -27,27 +27,27 @@ RSpec.describe 'Visiting the expenses page', type: :system do
     end
 
     scenario 'should show me the list of expenses ordered by most recent' do
-      within('tbody') do
-        expenses_elements = all('tr', count: 3)
+      within('#expenses-list') do
+        expenses_elements = all('li', count: 3)
         first_expense = expenses_elements.first
         expect(first_expense).to have_content(@e3.name)
       end
     end
 
     scenario 'should show me the amount of each expense' do
-      within('tbody') do
-        amount_elements = all('tr', count: 3)
+      within('#expenses-list') do
+        amount_elements = all('li', count: 3)
         amounts = amount_elements.map(&:text)
 
-        expect(amounts).to contain_exactly(/amount: \$ #{@e3.amount}/i,
-                                           /amount: \$ #{@e2.amount}/i,
-                                           /amount: \$ #{@e1.amount}/i)
+        expect(amounts).to contain_exactly(/\$#{@e3.amount}/i,
+                                           /\$#{@e2.amount}/i,
+                                           /\$#{@e1.amount}/i)
       end
     end
 
     scenario 'should show me the total amount of the category' do
-      total_amount_element = find('p', text: /total amount:/i)
-      expect(total_amount_element).to have_content(/\$ #{category.total_amount}/i)
+      total_amount_el = find('span', text: /\$/i)
+      expect(total_amount_el).to have_content(/\$#{category.total_amount}/i)
     end
 
     scenario 'Clicking on the back button gets me to the categories page' do
@@ -57,7 +57,7 @@ RSpec.describe 'Visiting the expenses page', type: :system do
     end
 
     scenario 'clicking on the add expense button gets me to the form to create an expense' do
-      click_on text: /add expense/i
+      click_on text: /new expense/i
 
       expect(page).to have_current_path(new_category_expense_path(category))
     end

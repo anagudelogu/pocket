@@ -1,0 +1,8 @@
+<% flash.each do |type, msg| %>
+  <div data-controller="flash" class="fixed text-center font-proxima_bold min-w-full top-5 <%= css_class(type) %> text-white py-2 px-4 rounded-md z-10 flex justify-between items-center">
+    <%= msg %>
+    <button type="button" data-action="flash#dismiss">
+      <i class="material-icons">close</i>
+    </button>
+  </div>
+<% end %>

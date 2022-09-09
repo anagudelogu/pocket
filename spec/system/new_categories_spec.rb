@@ -23,7 +23,7 @@ RSpec.describe 'Visiting the new category page', type: :system do
       form = find('form', id: 'new-category')
       expect(form).to have_field('Name', type: 'text')
       expect(form).to have_field('Icon', type: 'text')
-      expect(form).to have_button('Create Category', type: 'submit')
+      expect(form).to have_button('Create', type: 'submit')
     end
 
     context "when I'm filling the form" do
@@ -32,7 +32,7 @@ RSpec.describe 'Visiting the new category page', type: :system do
       scenario 'leaving name blank should display errors' do
         within(form) do
           fill_in 'Icon', with: 'https://via.placeholder.com/150x150/cccccc/969696?text=Not+Available'
-          click_button 'Create Category'
+          click_button 'Create'
         end
 
         expect(page).to have_content(/name can't be blank/i)
@@ -41,7 +41,7 @@ RSpec.describe 'Visiting the new category page', type: :system do
       scenario 'leaving icon blank should display errors' do
         within(form) do
           fill_in 'Name', with: 'Some name'
-          click_button 'Create Category'
+          click_button 'Create'
         end
 
         expect(page).to have_content(/icon can't be blank/i)
@@ -51,7 +51,7 @@ RSpec.describe 'Visiting the new category page', type: :system do
         within(form) do
           fill_in 'Name', with: 'Some name'
           fill_in 'Icon', with: 'https://via.placeholder.com/150x150/cccccc/969696?text=Not+Available'
-          click_button 'Create Category'
+          click_button 'Create'
         end
         expect(page).to have_current_path(categories_path)
         within('#categories-list') do

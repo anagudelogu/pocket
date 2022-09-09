@@ -2,12 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+@font-face {
+  font-family: 'Proxima Nova Bold';
+  src: url('Proxima Nova Bold.otf');
+}
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src: url('Proxima Nova Alt Light.otf');
+}
+
+@layer base {
+  html {
+    font-family: Proxima Nova Light, sans-serif;
   }
 }
 
-*/
+@layer components {
+  .header-btn {
+    @apply absolute top-3 right-4 text-white;
+  }
+
+  .input-field {
+    @apply w-full border-neutral-200 border-x-0;
+  }
+}

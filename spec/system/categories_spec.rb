@@ -49,10 +49,10 @@ RSpec.describe 'Visiting the categories page', type: :system do
       visit categories_path
 
       within('#categories-list') do
-        total_elements = all('p', count: 2, text: /total/i)
+        total_elements = all('p', count: 2, text: /\$/i)
         totals = total_elements.map(&:text)
 
-        expect(totals).to contain_exactly(/total \$ #{@c1.total_amount}/i, /total \$ #{@c2.total_amount}/i)
+        expect(totals).to contain_exactly(/\$#{@c1.total_amount}/i, /\$#{@c2.total_amount}/i)
       end
     end
 
