@@ -10,14 +10,10 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+  <%= render partial: 'shared/flash' %>
+  <body class="bg-zinc-100">
 
-  <body>
-    <div>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
-    <main class="container mx-auto">
-      <%= yield %>
-    </main>
+    <%= yield %>
+  
   </body>
 </html>
