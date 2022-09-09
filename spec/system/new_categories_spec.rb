@@ -50,7 +50,7 @@ RSpec.describe 'Visiting the new category page', type: :system do
       scenario 'Filling both fields creates the category and gets me to the home page' do
         within(form) do
           fill_in 'Name', with: 'Some name'
-          fill_in 'Icon', with: 'https://via.placeholder.com/150x150/cccccc/969696?text=Not+Available'
+          fill_in 'Icon', with: 'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
           click_button 'Create'
         end
         expect(page).to have_current_path(categories_path)
