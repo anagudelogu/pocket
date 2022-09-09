@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: 'Proxima Nova Bold';
-  src: font-url('Proxima Nova Bold.otf');
+  src: url('Proxima-Nova-Bold.otf');
 }
 
 @font-face {
   font-family: 'Proxima Nova Light';
-  src: font-url('Proxima Nova Alt Light.otf');
+  src: url('Proxima-Nova-Alt-Light.otf');
 }
 
 @layer base {
