@@ -36,6 +36,9 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 # Devise authentication [https://github.com/heartcombo/devise#getting-started]
 gem 'devise'
 
+# Google icons [https://github.com/Angelmmiguel/material_icons]
+gem 'material_icons'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -75,9 +78,6 @@ group :development, :test do
 
   # Kill n+1 queries [https://github.com/flyerhzm/bullet]
   gem 'bullet'
-
-  # Google icons [https://github.com/Angelmmiguel/material_icons]
-  gem 'material_icons'
 end
 
 group :development do
