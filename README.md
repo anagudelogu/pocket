@@ -57,6 +57,10 @@ gem install bundler
 bundle install
 ```
 
+```
+bundle exec rake assets:precompile
+```
+
 ### Usage
 
 You can get the app running locally by opening a local server:
@@ -96,6 +100,10 @@ Feel free to check the [issues page](https://github.com/anagudelogu/pocket/issue
 ## Show your support
 
 Give a ⭐️ if you like this project!
+
+## Acknowledges
+
+Special thanks to [Gregoire Vella](https://www.behance.net/gregoirevella) for the design.
 
 ## 📝 License
 
