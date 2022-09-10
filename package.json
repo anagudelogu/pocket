@@ -1,0 +1,30 @@
+{
+  "name": "pocket",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "bundle exec rspec",
+    "linters": "npx stylelint \"**/*.{css,scss}\" --fix && bundle exec rubocop -a"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anagudelogu/pocket.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anagudelogu/pocket/issues"
+  },
+  "homepage": "https://github.com/anagudelogu/pocket#readme",
+  "devDependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0"
+  }
+}

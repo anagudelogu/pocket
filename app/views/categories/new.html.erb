@@ -1,0 +1,18 @@
+<%= render partial: 'shared/header', locals: { path: categories_path, title: 'CATEGORY' } %>
+<section class="flex flex-col justify-start items-center bg-zinc-100 py-5 min-h-[80%] max-h-[80%] mt-12">
+  <%= form_with model: @category, url: categories_path, id: 'new-category', data: { turbo: false }, html: { class: 'w-full'} do |f| %>
+
+    <div>
+      <%= f.text_field :name, placeholder: 'Name', class: 'input-field' %>
+    </div>
+
+    <div>
+      <%= f.text_field :icon, placeholder: 'Icon', class: 'input-field' %>
+    </div>
+
+    <div>
+      <%= f.submit 'Create', class: 'header-btn' %>
+    </div>
+
+  <% end %>
+</section>

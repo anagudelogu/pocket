@@ -1,0 +1,25 @@
+<%= render partial: 'shared/header', locals: { path: root_path, title: 'REGISTER' } %>
+<section class="flex flex-col justify-start items-center bg-zinc-100 py-5 min-h-[80%] max-h-[80%] mt-12">
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}, html: { class: 'w-full' }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div>
+        <%= f.text_field :name, placeholder: 'Full name', class: 'input-field' %>
+    </div>
+
+    <div>
+        <%= f.email_field :email, autofocus: true, placeholder: "Email", class: 'input-field' %>
+    </div>
+
+    <div>
+      <%= f.password_field :password, placeholder: 'Password', class: 'input-field' %>
+    </div>
+
+    <div>
+      <%= f.submit "Next", class: 'header-btn' %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</section>
