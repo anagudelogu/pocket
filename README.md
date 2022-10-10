@@ -6,7 +6,7 @@ Planning your expenses is a must when you want to improve your financial life. P
 
 ## Live Demo
 
-[Pocket app](https://pocket-budget-app.herokuapp.com/categories)
+[Pocket app](https://pocket-budget-app.herokuapp.com/)
 
 ## Built With
 
